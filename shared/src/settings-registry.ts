@@ -86,6 +86,7 @@ export const DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-4-6";
 export const DEFAULT_GLM_MODEL = "glm-5.1";
 export const DEFAULT_CODEX_MODEL = "gpt-5.4-mini";
 export const DEFAULT_CLAUDE_CLI_MODEL = "claude-sonnet-5";
+export const DEFAULT_OMNIROUTE_MODEL = "gpt-4o";
 
 export function getDefaultModelForProvider(
   provider: string | null | undefined,
@@ -125,6 +126,11 @@ export function getDefaultModelForProvider(
   if (normalizedProvider === "ollama") {
     return "";
   }
+
+  if (normalizedProvider === "omniroute") {
+    return DEFAULT_OMNIROUTE_MODEL;
+  }
+
   return DEFAULT_GEMINI_MODEL;
 }
 

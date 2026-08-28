@@ -33,6 +33,7 @@ export const LLM_PROVIDERS = [
   "gemini_cli",
   "claude_cli",
   "codex",
+  "omniroute",
 ] as const;
 
 export type LlmProviderId = (typeof LLM_PROVIDERS)[number];
@@ -60,6 +61,7 @@ export const LLM_PROVIDER_LABELS: Record<LlmProviderId, string> = {
   gemini_cli: "Gemini (CLI)",
   claude_cli: "Claude (CLI)",
   codex: "Codex",
+  omniroute: "Omniroute",
 };
 
 const PROVIDERS_WITH_API_KEY = new Set<LlmProviderId>([
@@ -70,6 +72,7 @@ const PROVIDERS_WITH_API_KEY = new Set<LlmProviderId>([
   "openai_compatible",
   "glm",
   "gemini",
+  "omniroute",
 ]);
 
 const PROVIDERS_WITH_OPTIONAL_API_KEY = new Set<LlmProviderId>(["ollama"]);
@@ -79,6 +82,7 @@ const PROVIDERS_WITH_BASE_URL = new Set<LlmProviderId>([
   "ollama",
   "openai_compatible",
   "glm",
+  "omniroute",
 ]);
 
 const PROVIDER_HINTS: Record<LlmProviderId, string> = {
@@ -102,6 +106,8 @@ const PROVIDER_HINTS: Record<LlmProviderId, string> = {
     "Claude (CLI) runs the official Claude Code CLI on this host using your subscription token or API key — no JobOps LLM key.",
   codex:
     "Codex runs through a local app-server process and uses your Codex login session.",
+  omniroute:
+    "Omniroute is a self-hosted OpenAI-compatible endpoint for model routing.",
 };
 
 const PROVIDER_KEY_HELPERS: Record<
@@ -146,6 +152,9 @@ const PROVIDER_KEY_HELPERS: Record<
     text: "Authenticate with the Claude CLI (claude setup-token); see docs link below",
   },
   codex: { text: "No API key required when Codex is authenticated locally" },
+  omniroute: {
+    text: "Create a key in your Omniroute dashboard",
+  },
 };
 
 const BASE_URL_PROVIDERS = [
@@ -153,6 +162,7 @@ const BASE_URL_PROVIDERS = [
   "ollama",
   "openai_compatible",
   "glm",
+  "omniroute",
 ] as const;
 type BaseUrlProviderId = (typeof BASE_URL_PROVIDERS)[number];
 
@@ -161,6 +171,7 @@ const PROVIDER_BASE_URLS: Record<BaseUrlProviderId, string> = {
   ollama: "http://localhost:11434",
   openai_compatible: "https://api.example.com/v1/chat/completions",
   glm: "https://api.z.ai/api/paas/v4",
+  omniroute: "http://localhost:20128/v1",
 };
 
 export function normalizeLlmProvider(
