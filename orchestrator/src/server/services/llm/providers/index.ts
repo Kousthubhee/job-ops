@@ -7,6 +7,7 @@ import { geminiCliStrategy } from "./gemini_cli";
 import { glmStrategy } from "./glm";
 import { lmStudioStrategy } from "./lmstudio";
 import { ollamaStrategy } from "./ollama";
+import { omnirouteStrategy } from "./omniroute";
 import { openAiStrategy } from "./openai";
 import { openAiCompatibleStrategy } from "./openai-compatible";
 import { openRouterStrategy } from "./openrouter";
@@ -25,4 +26,5 @@ export const strategies: Record<LlmProvider, ProviderStrategy> = {
   gemini_cli: geminiCliStrategy,
   claude_cli: claudeCliStrategy,
   codex: codexStrategy,
+  omniroute: omnirouteStrategy,
 };
