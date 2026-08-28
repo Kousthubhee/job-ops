@@ -162,6 +162,7 @@ const BASE_URL_PROVIDERS = [
   "ollama",
   "openai_compatible",
   "glm",
+  "omniroute",
 ] as const;
 type BaseUrlProviderId = (typeof BASE_URL_PROVIDERS)[number];
 
@@ -170,6 +171,7 @@ const PROVIDER_BASE_URLS: Record<BaseUrlProviderId, string> = {
   ollama: "http://localhost:11434",
   openai_compatible: "https://api.example.com/v1/chat/completions",
   glm: "https://api.z.ai/api/paas/v4",
+  omniroute: "http://localhost:20128/v1",
 };
 
 export function normalizeLlmProvider(
